@@ -2,6 +2,25 @@
 
 <h3>@ViewBag.jobs.Count Result(s)</h3>
 
-@{ 
-    // TODO #3 - Use the same list display from Views/Search/Index.cshtml 
+@{
+// TODO #3 - Use the same list display from Views/Search/Index.cshtml
+    //loop over each list item within the list of jobs, each item is a dictionary
+    @foreach (var job in ViewBag.jobs)
+    {
+        //create a table for each list item which is a dictionary
+        //the nested loop iterates over each key/value pair and displays them all fancy in the table
+        <table class="job-listing">
+            <tbody>
+                @foreach (var kvp in job)
+                {
+                    <tr>
+                        <td>@kvp.Key</td>
+                        <td>@kvp.Value</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    }
 }
